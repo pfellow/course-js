@@ -62,21 +62,9 @@ function returnFnResult(fn) {
    console.log(f()); // выведет 12
    console.log(f()); // выведет 13
  */
-let counterStart = 0;
-let counter = 0;
 
 function returnCounter(number = 0) {
-  counterStart = number;
-  counter = 0;
-
-  const fn = (number = 0) => {
-    if (number !== 0) {
-      counterStart = number;
-    }
-    counter++;
-    return counterStart + counter;
-  };
-  return fn;
+  return () => ++number;
 }
 
 /*
@@ -89,11 +77,7 @@ function returnCounter(number = 0) {
    returnArgumentsArray(1, 2, 3) вернет [1, 2, 3]
  */
 function returnArgumentsArray() {
-  const arr = [];
-  for (let i = 0; i < arguments.length; i++) {
-    arr.push(arguments[i]);
-  }
-  return arr;
+  return [...arguments];
 }
 
 /*
